@@ -1,4 +1,4 @@
-# 汇喵金融数据助手（Huimiao Finance Data Helper）
+# 汇瞄金融数据助手（Huimiao Finance Data Helper）
 
 > 支持 **Claude Code** · **Codex (OpenAI)**
 
