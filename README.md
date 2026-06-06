@@ -14,6 +14,7 @@
 
 - 查询 15+ 家银行实时汇率
 - 查看国际/国内黄金价格（7 类金价）
+- 查询银行积存金价格（工行、建行、中行、招行、兴业等）
 - 查询外币兑换行情
 - 浏览经济日历
 - 比较各家银行存款利率
@@ -71,6 +72,7 @@ An AI Coding Agent Skill by **Huimiao Chaos Technology**, query financial data v
 
 - Real-time exchange rates from 15+ Chinese banks
 - International & domestic gold prices (7 categories)
+- Bank gold savings prices (ICBC, CCB, BOC, CMB, CIB & more)
 - Foreign currency pair rates
 - Economic calendar events
 - Deposit interest rate comparison
