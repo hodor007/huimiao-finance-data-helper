@@ -3,6 +3,7 @@
 由**汇喵混沌科技公司**提供 | 微信服务号 · 小程序 · iOS App
 
 > 通过自然语言查询汇率、黄金价格、外币兑换、经济日历和存款利率数据。
+> 支持 **Claude Code** · **Codex (OpenAI)**
 
 ## 概述
 
@@ -21,7 +22,12 @@
 - **BASE_URL**: `https://zhengmeili.asia`
 - **Gateway 端点**: `/ec/skill/gateway`
 
-调用方式：使用 `WebFetch` 工具，GET 请求 `{BASE_URL}/ec/skill/gateway?type=...&...`
+调用方式：HTTP GET 请求 `{BASE_URL}/ec/skill/gateway?type=...&...`
+
+| 平台 | 工具 |
+|------|------|
+| Claude Code | 使用 `WebFetch` 工具发起请求 |
+| Codex | 使用 `curl` 或 `fetch` 工具发起请求 |
 
 ## 领域知识
 

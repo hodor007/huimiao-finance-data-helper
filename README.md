@@ -1,12 +1,14 @@
 # 汇喵金融数据助手（Huimiao Finance Data Helper）
 
+> 支持 **Claude Code** · **Codex (OpenAI)**
+
 [中文](#中文) | [English](#english)
 
 ---
 
 ## 中文
 
-由**汇喵混沌科技公司**提供的 Claude Code Skill，通过自然语言查询金融数据。
+由**汇喵混沌科技公司**提供的 AI Coding Agent Skill，通过自然语言查询金融数据。支持 Claude Code 和 Codex (OpenAI) 双平台。
 
 ### 功能
 
@@ -18,12 +20,15 @@
 
 ### 安装
 
-1. 下载 `SKILL.md`
-2. 放入 Claude Code 的 skills 目录：
-   ```bash
-   cp SKILL.md ~/.claude/skills/
-   ```
-3. 在 Claude Code 中输入自然语言查询即可
+**Claude Code:**
+```bash
+cp SKILL.md ~/.claude/skills/
+```
+
+**Codex (OpenAI):**
+```bash
+cp SKILL.md ~/.codex/skills/
+```
 
 ### 使用示例
 
@@ -60,7 +65,7 @@
 
 ## English
 
-A Claude Code Skill by **Huimiao Chaos Technology**, query financial data via natural language.
+An AI Coding Agent Skill by **Huimiao Chaos Technology**, query financial data via natural language. Works with **Claude Code** and **Codex (OpenAI)**.
 
 ### Features
 
@@ -72,12 +77,15 @@ A Claude Code Skill by **Huimiao Chaos Technology**, query financial data via na
 
 ### Installation
 
-1. Download `SKILL.md`
-2. Copy to Claude Code's skills directory:
-   ```bash
-   cp SKILL.md ~/.claude/skills/
-   ```
-3. Start querying in Claude Code with natural language
+**Claude Code:**
+```bash
+cp SKILL.md ~/.claude/skills/
+```
+
+**Codex (OpenAI):**
+```bash
+cp SKILL.md ~/.codex/skills/
+```
 
 ### Examples
 
