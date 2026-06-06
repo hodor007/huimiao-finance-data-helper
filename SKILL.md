@@ -18,6 +18,12 @@
 
 **数据更新频率**：汇率、外币兑换和黄金价格数据更新频率为 **1 分钟**。
 
+## ⚠️ 关键规则
+
+1. **URL 参数中所有币种必须使用英文代码**（如 `USD`、`JPY`、`XAUUSD`），禁止使用中文（如 `美元`、`日元`）
+2. **查询银行汇率用银行 bank_type**（如 `ICBC`、`BOC`），**查询国际外汇行情用 `FOREIGN`**
+3. **单币种汇率**默认使用 `INTL`（国际汇率），**外币兑换对**使用 `FOREIGN`，**黄金/商品**使用 `INTL`。仅当用户明确提到某家银行时（如"工行美元"），才用 `ICBC`、`BOC` 等银行代码
+
 ## API 配置
 
 - **BASE_URL**: `https://www.zhengmeili.asia`
@@ -85,7 +91,7 @@
 
 | bank_type | 名称 | 用途 |
 |-----------|------|------|
-| `INTL` | 国际市场 | 国际黄金/白银/铂金/原油/离岸人民币 |
+| `INTL` | 国际市场 | 国际汇率（USD/JPY/EUR 等 14 种）+ 黄金/白银/铂金/原油 |
 | `DOMESTIC_GOLD` | 国内金价 | 黄金T+D、黄金9999 |
 | `JEWELRY_GOLD` | 首饰金 | 各品牌首饰金报价 |
 | `FOREIGN` | 外币兑换 | 美元兑日元、欧元兑美元 等外币对 |
@@ -110,7 +116,7 @@
 | 卢布 | `RUB` |
 | 人民币 | `CNY` |
 
-> 使用英文代码（如 `USD`）或中文名（如 `美元`）均可，Gateway 会自动转换。
+> **必须使用英文代码**（如 `USD`、`JPY`）。Gateway 会自动转换为系统内部格式。
 
 ### 黄金品类（共 7 类，`gold_latest` 一次返回）
 
@@ -190,14 +196,17 @@
 
 ### 场景
 
-- "工行美元现在汇率多少？"
-- "中行日元最新价？"
-- "招行欧元买入价和卖出价？"
+- "美元现在汇率多少？" → 默认查国际汇率
+- "日元最新价？"
+- "工行美元买入价和卖出价？" → 用户指定银行时用银行代码
 - "工行和中行美元哪个划算？"（分别调用两次对比）
 
 ### 调用
 
 ```
+# 国际汇率（默认）
+GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=USD&bank_type=INTL
+# 银行汇率（用户明确指定银行时）
 GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=USD&bank_type=ICBC
 ```
 
@@ -225,14 +234,15 @@ GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=USD&bank_type=IC
 
 ### 场景
 
-- "工行美元最近一周走势"
-- "中行日元本月走势？"
-- "招行欧元最近一个月变化？"
+- "美元最近一周走势" → 默认国际汇率
+- "日元本月走势？"
+- "工行美元最近一个月变化？"
 
 ### 调用
 
 ```
-GET {BASE_URL}/ec/skill/gateway?type=rates_history&currency=美元&range=7d&bank_type=ICBC
+# 国际汇率历史（默认）
+GET {BASE_URL}/ec/skill/gateway?type=rates_history&currency=USD&range=7d&bank_type=INTL
 ```
 
 ### 返回示例
@@ -332,6 +342,7 @@ GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=Gold&bank_type=I
 ```
 GET {BASE_URL}/ec/skill/gateway?type=rates_history&currency=黄金T+D&range=7d&bank_type=DOMESTIC_GOLD
 ```
+> 黄金T+D、黄金9999、离岸人民币等无英文 code 的品类，使用中文名。
 
 ### 可用商品列表（bank_type=INTL）
 
@@ -357,13 +368,13 @@ GET {BASE_URL}/ec/skill/gateway?type=rates_history&currency=黄金T+D&range=7d&b
 ### 最新价
 
 ```
-GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=美元兑日元&bank_type=FOREIGN
+GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=USDJPY&bank_type=FOREIGN
 ```
 
 ### 历史走势
 
 ```
-GET {BASE_URL}/ec/skill/gateway?type=rates_history&currency=美元兑日元&range=30d&bank_type=FOREIGN
+GET {BASE_URL}/ec/skill/gateway?type=rates_history&currency=USDJPY&range=30d&bank_type=FOREIGN
 ```
 
 ### 结果解读
@@ -425,13 +436,13 @@ GET {BASE_URL}/ec/skill/gateway?type=deposit&currency_type=USD&bank_type=ICBC&te
 ### 跨银行比较（不指定 bank_type）
 
 ```
-GET {BASE_URL}/ec/skill/gateway?type=deposit&currency_type=人民币&term=1Y
+GET {BASE_URL}/ec/skill/gateway?type=deposit&currency_type=CNY&term=1Y
 ```
 
 ### 使用月份数
 
 ```
-GET {BASE_URL}/ec/skill/gateway?type=deposit&currency_type=人民币&term_months=6
+GET {BASE_URL}/ec/skill/gateway?type=deposit&currency_type=CNY&term_months=6
 ```
 
 ---
