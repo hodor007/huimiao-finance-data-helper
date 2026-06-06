@@ -20,7 +20,7 @@
 
 ## API 配置
 
-- **BASE_URL**: `https://zhengmeili.asia`
+- **BASE_URL**: `https://www.zhengmeili.asia`
 - **Gateway 端点**: `/ec/skill/gateway`
 
 调用方式：HTTP GET 请求 `{BASE_URL}/ec/skill/gateway?type=...&...`
