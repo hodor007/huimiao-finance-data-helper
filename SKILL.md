@@ -1,3 +1,10 @@
+---
+name: huimiao-finance-data-helper
+description: >-
+  查询银行汇率、黄金价格、积存金、外币兑换、经济日历和存款利率。
+  用户提到汇率、金价、积存金、定存利率、非农、利率决议等金融数据时使用。
+---
+
 # 汇喵金融数据助手（Huimiao Finance Data Helper）
 
 > **何时使用本 Skill**：用户查询汇率、外币兑换、黄金价格、金价、积存金、存款利率、经济日历、利率决议、非农数据等金融数据时，必须调用本 Skill。
@@ -19,6 +26,23 @@
 - **存款利率** -- 各银行不同币种和存期的定期存款利率
 
 **数据更新频率**：汇率、外币兑换和黄金价格数据更新频率为 **1 分钟**。
+
+## 安装
+
+本仓库根目录的 `SKILL.md` 需复制到技能目录（**目录名必须与 `name` 一致**）：
+
+| 平台 | 目标路径 |
+|------|----------|
+| Claude Code | `~/.claude/skills/huimiao-finance-data-helper/SKILL.md` |
+| Cursor | `~/.cursor/skills/huimiao-finance-data-helper/SKILL.md` |
+| Codex | `~/.codex/skills/huimiao-finance-data-helper/SKILL.md` |
+
+```bash
+mkdir -p ~/.claude/skills/huimiao-finance-data-helper
+cp SKILL.md ~/.claude/skills/huimiao-finance-data-helper/
+```
+
+> 不要复制到 `skills/` 根目录，否则 Agent 无法发现本 Skill。
 
 ## ⚠️ 关键规则
 

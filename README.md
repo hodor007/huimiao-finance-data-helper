@@ -21,14 +21,24 @@
 
 ### 安装
 
+Skill 必须放在**以技能名命名的子目录**中，不能直接复制到 `skills/` 根目录。
+
 **Claude Code:**
 ```bash
-cp SKILL.md ~/.claude/skills/
+mkdir -p ~/.claude/skills/huimiao-finance-data-helper
+cp SKILL.md ~/.claude/skills/huimiao-finance-data-helper/
+```
+
+**Cursor:**
+```bash
+mkdir -p ~/.cursor/skills/huimiao-finance-data-helper
+cp SKILL.md ~/.cursor/skills/huimiao-finance-data-helper/
 ```
 
 **Codex (OpenAI):**
 ```bash
-cp SKILL.md ~/.codex/skills/
+mkdir -p ~/.codex/skills/huimiao-finance-data-helper
+cp SKILL.md ~/.codex/skills/huimiao-finance-data-helper/
 ```
 
 ### 使用示例
@@ -79,14 +89,24 @@ An AI Coding Agent Skill by **Huimiao Chaos Technology**, query financial data v
 
 ### Installation
 
+The skill must live in a **directory named after the skill**, not directly under `skills/`.
+
 **Claude Code:**
 ```bash
-cp SKILL.md ~/.claude/skills/
+mkdir -p ~/.claude/skills/huimiao-finance-data-helper
+cp SKILL.md ~/.claude/skills/huimiao-finance-data-helper/
+```
+
+**Cursor:**
+```bash
+mkdir -p ~/.cursor/skills/huimiao-finance-data-helper
+cp SKILL.md ~/.cursor/skills/huimiao-finance-data-helper/
 ```
 
 **Codex (OpenAI):**
 ```bash
-cp SKILL.md ~/.codex/skills/
+mkdir -p ~/.codex/skills/huimiao-finance-data-helper
+cp SKILL.md ~/.codex/skills/huimiao-finance-data-helper/
 ```
 
 ### Examples
