@@ -11,6 +11,7 @@
 
 - **银行汇率** -- 工商银行、中国银行、建设银行等 15+ 家银行的实时购汇/结汇汇率
 - **黄金价格** -- 国际金价（美元/人民币）、国内金价（黄金T+D、9999）、首饰金
+- **银行积存金** -- 工行、建行、中行、招行、兴业等银行的积存金/黄金积存价格
 - **外币兑换** -- 美元/日元、欧元/美元等外币对最新行情
 - **经济日历** -- 按日期查询经济事件（非农数据、利率决议等）
 - **存款利率** -- 各银行不同币种和存期的定期存款利率
@@ -124,6 +125,18 @@
 | — | `黄金9999` | `DOMESTIC_GOLD` | 国内黄金9999 |
 
 > 有英文 code 的品类直接用 code 查询（如 `XAUUSD`），无 code 的用中文名。白银（`XAGUSD`）、铂金（`XPTUSD`）等其他商品可通过 `type=rates_latest&bank_type=INTL` 单独查询，不在 `gold_latest` 返回范围。
+
+### 银行积存金
+
+| currency_type | bank_type | 说明 |
+|--------------|-----------|------|
+| `Gold` | `ICBC` | 工商银行积存金 |
+| `Gold` | `CCB` | 建设银行积存金 |
+| `Gold` | `BOC` | 中国银行贵金属 |
+| `Gold` | `CIB` | 兴业银行黄金积存 |
+| `Gold` | `CMB` | 招商银行黄金积存 |
+
+> 京东金融（`JD`）还聚合了多家银行的积存金产品，使用中文名查询：`工商积存金`、`农行积存金`、`兴业积存金`、`平安积存金`、`广发积存金`。
 
 ### 外币对示例
 
@@ -303,6 +316,7 @@ GET {BASE_URL}/ec/skill/gateway?type=gold_latest
 - "白银什么价？"
 - "铂金最近一个月怎么样？"
 - "原油最新价？"
+- "工行积存金现在多少钱？"
 
 ### 最新价（推荐使用 code）
 
@@ -310,6 +324,7 @@ GET {BASE_URL}/ec/skill/gateway?type=gold_latest
 GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=XAUUSD&bank_type=INTL
 GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=XAGUSD&bank_type=INTL
 GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=XPTUSD&bank_type=INTL
+GET {BASE_URL}/ec/skill/gateway?type=rates_latest&currency_type=Gold&bank_type=ICBC
 ```
 
 ### 历史走势
