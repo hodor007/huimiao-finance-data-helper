@@ -1,0 +1,17 @@
+{
+  "name": "huimiao-finance-marketplace",
+  "version": "1.0.0",
+  "description": "汇喵金融数据助手 — 查询汇率、黄金、外币兑换、经济日历、存款利率",
+  "owner": {
+    "name": "汇喵混沌科技"
+  },
+  "plugins": [
+    {
+      "name": "huimiao-finance-data-helper",
+      "description": "查询汇率、黄金价格、外币兑换、经济日历和存款利率。由汇喵混沌科技提供，数据每分钟更新。",
+      "source": "./",
+      "category": "finance",
+      "version": "1.0.0"
+    }
+  ]
+}
